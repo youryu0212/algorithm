@@ -1,0 +1,2 @@
+const input = require('fs').readFileSync('/dev/stdin').toString().split('\n');
+console.log(input.slice(1,input.length-1).reduce((acc,cur)=>{acc.push(cur.split(' '));return acc},[]).sort((a,b) => { if (a[0] === b[0]) return 0; else return a[0]-b[0]}).reduce((s,cur) => {s+=`${cur.join(" ")}\n`;return s},""));
