@@ -1,0 +1,1 @@
+console.log(require('fs').readFileSync('/dev/stdin').toString().split('\n')[0].split(' ').map(Number).reduce((acc,cur) => acc + cur**2,0)%10);
