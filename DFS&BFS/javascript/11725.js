@@ -2,7 +2,7 @@ const input = require('fs').readFileSync('/dev/stdin').toString().split('\n');
 
 const n = Number(input[0]);
 let tree = Array.from(Array(n+1),() => new Array());
-let parentNode = new Array(n+1).fill(0);
+let parentNode = new Array(n+1);
 let a,b;
 
 for (let i = 1 ; i<input.length-1 ; i++){
@@ -22,7 +22,7 @@ const bfs = ()=>{
   while (idx<q.length){
     node = q[idx];
     for (nextNode of tree[node]){
-      if (parentNode[nextNode] !== 0) continue;
+      if (parentNode[nextNode]) continue;
       parentNode[nextNode] = node;
       q.push(nextNode);
     }
@@ -32,7 +32,6 @@ const bfs = ()=>{
 bfs()
 let result = "";
 for (let i = 2 ; i<=n ; i++){
-  result+= parentNode[i];
-  if (i !== n) result+="\n";
+  result+= parentNode[i]+'\n';
 }
 console.log(result);
