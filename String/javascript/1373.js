@@ -16,4 +16,4 @@ while (bin.length) {
 if (num > 0) {
   answer.push(num);
 }
-console.log(answer.reverse().join(""));
+console.log(answer.length ? answer.reverse().join("") : 0);
